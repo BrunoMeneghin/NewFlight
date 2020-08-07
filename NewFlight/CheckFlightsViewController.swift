@@ -64,6 +64,7 @@ class CheckFlightsViewController: UIViewController {
         
         // This is for a test only
         let ShowFlightsVC = ShowFlightsViewController()
+        
         self.navigationController?.pushViewController(ShowFlightsVC, animated: true)
     }
     
