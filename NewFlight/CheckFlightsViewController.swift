@@ -13,6 +13,7 @@ class CheckFlightsViewController: UIViewController {
     // MARK: - Subviews
     
     private lazy var checkFlightsButton = CheckFlightsButton(title: "flights")
+    private let showFlightsViewController = ShowFlightsViewController()
     
     private lazy var checkFlightsLabel: UILabel = {
         let label = UILabel()
@@ -32,15 +33,18 @@ class CheckFlightsViewController: UIViewController {
     }()
     
     // MARK: - lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
+    
         title = "Your Flight"
         
         view.addSubview(checkFlightsDatePicker)
         view.addSubview(checkFlightsButton)
         view.addSubview(checkFlightsLabel)
+       
         
         checkFlightsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         checkFlightsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -58,14 +62,21 @@ class CheckFlightsViewController: UIViewController {
         checkFlightsButton.addTarget(self, action: #selector(didTapCheckFlightButton(_:)), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+    }
+    
+    
     // MARK: - Actions
     
     @objc func didTapCheckFlightButton(_ button: UIButton) {
         
-        // This is for a test only
-        let ShowFlightsVC = ShowFlightsViewController()
-        
-        self.navigationController?.pushViewController(ShowFlightsVC, animated: true)
+        // This is a test only
+        self.present(showFlightsViewController, animated: true, completion: { () in
+            print("done ~ completion")
+        })
     }
     
 }
