@@ -21,14 +21,9 @@ class ShowFlightsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.barTintColor = UIColor.purple
-
-        
         let gradientColor = CAGradientLayer()
         gradientColor.frame = self.view.frame
-        gradientColor.colors = [UIColor.purple.cgColor, UIColor.black.cgColor]
+        gradientColor.colors = [UIColor.systemPink.cgColor, UIColor.black.cgColor]
 
         view.layer.addSublayer(gradientColor)
         view.addSubview(checkFlightsButton)
